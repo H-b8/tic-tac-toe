@@ -28,10 +28,12 @@ initialize();
 
 function initialize() {
     console.log('reset')
-    board = [null, null, null, null, null, null, null, null, null];
+    board = [null, null, null, 
+        null, null, null, 
+        null, null, null];
     turn = 1;
     winner = null;
-    render();
+    // render();
 }
 
 function render() {
@@ -50,28 +52,28 @@ function makeMove(evt) {
 
 function checkWinner() {
     console.log(board)
-    if (board[0]+board[1]+board[2] === 3 || board[0]+board[1]+board[2] === -3) {
+    if (Math.abs(board[0]+board[1]+board[2]) === 3) {
         console.log('winner')
     }
-    else if (board[3]+board[4]+board[5] === 3 || board[3]+board[4]+board[5] === -3) {
+    else if (Math.abs(board[3]+board[4]+board[5]) === 3) {
         console.log('winner')
     }
-    else if (board[6]+board[7]+board[8] === 3 || board[6]+board[7]+board[8] === -3) {
+    else if (Math.abs(board[6]+board[7]+board[8]) === 3) {
         console.log('winner')
     }
-    else if (board[0]+board[3]+board[6] === 3 || board[0]+board[3]+board[6] === -3) {
+    else if (Math.abs(board[0]+board[3]+board[6]) === 3) {
         console.log('winner')
     }
-    else if (board[1]+board[4]+board[7] === 3 || board[1]+board[4]+board[7] === -3) {
+    else if (Math.abs(board[1]+board[4]+board[7]) === 3) {
         console.log('winner')
     }
-    else if (board[2]+board[5]+board[8] === 3 || board[2]+board[5]+board[8] === -3) {
+    else if (Math.abs(board[2]+board[5]+board[8]) === 3) {
         console.log('winner')
     }
-    else if (board[0]+board[4]+board[8] === 3 || board[0]+board[4]+board[8] === -3) {
+    else if (Math.abs(board[0]+board[4]+board[8]) === 3) {
         console.log('winner')
     }
-    else if (board[2]+board[4]+board[6] === 3 || board[2]+board[4]+board[6] === -3) {
+    else if (Math.abs(board[2]+board[4]+board[6]) === 3) {
         console.log('winner')
     }
     else {
