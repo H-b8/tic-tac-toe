@@ -11,12 +11,11 @@ let turn, winner;
 
 /*----- cached element references -----*/
 
-let boxes = document.querySelector('div');
+let boxes = document.querySelectorAll('div');
 
 /*----- event listeners -----*/
 
 document.querySelector('button').addEventListener('click', initialize);
-// figure out how to hide while game is being played
 
 let section = document.querySelector('section')
 section.addEventListener('click', (evt) => {
@@ -37,18 +36,21 @@ initialize();
 function initialize() {
     
     console.log('GAME STARTED')
+    section.style.pointerEvents = 'auto';
     replay.style.pointerEvents = 'none';
     replay.innerText = "'X' GOES FIRST :^)";
+    // let boxes = section.children;
     for(let i = 0; i < boxes.length; i++ ){
         boxes[i].innerText = '';
+        boxes[i].style.color = 'black';
     }
     board = [null, null, null, 
-        null, null, null, 
-        null, null, null];
+     null, null, null, 
+     null, null, null];
     turn = 1;
     winner = null;
 }
-
+    
 function makeMove(evt) {
     
     let i = evt.target.id;
