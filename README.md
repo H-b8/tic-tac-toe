@@ -1,7 +1,7 @@
 # TIC-TAC-TOE GAME
 
-- GAME STARTS BY INVOKING *initialize();*  
-- BOX DISPLAYED BELOW BOARD IS REALLY *replay* BUTTON, BUT CLICK FUNCTION IS DISABLED AND IT IS BEING USED TO DISPLAY MESSAGES  
-- WHEN A BOX IS CLICKED, A SYMBOL IS PLACED AND IS NOW UNCLICKABLE
-- A WINNER IS INDICATED BY TURNING THE SYMBOLS IN THE WINNING ROW RED AND RENDERING THE BOARD UNCLICKABLE  
-- "MESSAGE DISPLAY BOX" TURNS INTO A CLICKABLE BUTTON FOR USER TO RESET THE BOARD
+- Game starts by invoking *initialize();*  
+- Box below grid is really a button, but click is disabled to display messages  
+- When a box is clicked, a symbol is placed into and it is rendered unclickable  
+- A winner is indicated by turning a winning row red  
+- "Message display box" then becomes a clickable reset button
