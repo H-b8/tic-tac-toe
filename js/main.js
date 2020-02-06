@@ -7,7 +7,7 @@ const winningCombos = [ [0, 1, 2], [3, 4, 5], [6, 7, 8],
 
 /*----- app's state (variables) -----*/
 
-let turn;
+let turn, winner;
 
 /*----- cached element references -----*/
 
@@ -66,6 +66,7 @@ function makeMove(evt) {
     console.log(board);
     checkWinner();
     turn *= -1;
+    winner = null;
 }
 
 function checkWinner() {
@@ -74,6 +75,9 @@ function checkWinner() {
 
         if (Math.abs(board[combo[0]]+board[combo[1]]+board[combo[2]]) === 3) {
             
+            winner = 'won';
+            console.log('winner won')
+
             document.getElementById(combo[0]).style.color = 'red';
             document.getElementById(combo[1]).style.color = 'red';
             document.getElementById(combo[2]).style.color = 'red';
@@ -83,15 +87,17 @@ function checkWinner() {
             replay.style.pointerEvents = 'auto';
         }
     });
-   
-    if (!board.includes(null)) {
 
-        for(let i = 0; i < boxes.length; i++ ){
-            boxes[i].style.color = '#FFC0C1';
+    if (!board.includes(null)) {
+        console.log('checking full board')
+        if (winner === null) {
+            console.log('checking if winner null')
+            for(let i = 0; i < boxes.length; i++ ){
+                 boxes[i].style.color = '#FFC0C1';
+            }
+            section.style.pointerEvents = 'none';
+            replay.innerText = "CLICK TO RESET GAME";
+            replay.style.pointerEvents = 'auto';
         }
-    
-        section.style.pointerEvents = 'none';
-        replay.innerText = "CLICK TO RESET GAME";
-        replay.style.pointerEvents = 'auto';
     }
-} 
+}
