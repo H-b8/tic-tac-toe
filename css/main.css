@@ -40,13 +40,6 @@ body {
     color: white;
 }
 
-.box.x {
-    cursor: not-allowed;
-}
-
-.box.o {
-    cursor: not-allowed;
-}
 
 #replay {
     width: 300px;
