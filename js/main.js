@@ -22,7 +22,6 @@ section.addEventListener('click', (evt) => {
     
     if(board[evt.target.id] !== null) {
         console.log("THIS BOX IS TAKEN")
-        // locks box after click
     } 
     else {
         makeMove(evt);
@@ -39,7 +38,6 @@ function initialize() {
     section.style.pointerEvents = 'auto';
     replay.style.pointerEvents = 'none';
     replay.innerText = "'X' GOES FIRST :^)";
-    // let boxes = section.children;
     for(let i = 0; i < boxes.length; i++ ){
         boxes[i].innerText = '';
         boxes[i].style.color = 'black';
@@ -76,7 +74,6 @@ function checkWinner() {
         if (Math.abs(board[combo[0]]+board[combo[1]]+board[combo[2]]) === 3) {
             
             winner = 'won';
-            console.log('winner won')
 
             document.getElementById(combo[0]).style.color = 'red';
             document.getElementById(combo[1]).style.color = 'red';
@@ -89,9 +86,9 @@ function checkWinner() {
     });
 
     if (!board.includes(null)) {
-        console.log('checking full board')
+        
         if (winner === null) {
-            console.log('checking if winner null')
+            
             for(let i = 0; i < boxes.length; i++ ){
                  boxes[i].style.color = '#FFC0C1';
             }
