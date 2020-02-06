@@ -78,11 +78,25 @@ function checkWinner() {
             document.getElementById(combo[0]).style.color = 'red';
             document.getElementById(combo[1]).style.color = 'red';
             document.getElementById(combo[2]).style.color = 'red';
+            
+            winner = board[combo[0]]; // should be 1 or -1
 
             section.style.pointerEvents = 'none';
             replay.innerText = "CLICK TO RESET GAME";
             replay.style.pointerEvents = 'auto';
         }
     });
+   
+    // if board has no more nulls and winner is still null
+    if (!board.includes(null)) {
+        if (winner === null) {
 
+            for(let i = 0; i < boxes.length; i++ ){
+                boxes[i].style.color = 'blue';
+            }
+            section.style.pointerEvents = 'none';
+            replay.innerText = "CLICK TO RESET GAME";
+            replay.style.pointerEvents = 'auto';
+        }
+    }
 } 
