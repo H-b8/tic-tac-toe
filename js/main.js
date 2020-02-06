@@ -1,11 +1,5 @@
 /*----- constants -----*/
 
-const lookup = {
-    '1': 'X',
-    '-1': 'O',
-    'null': ' '
-};
-
 const winningCombos = [ [0, 1, 2], [3, 4, 5], [6, 7, 8],
 [0, 3, 6], [1, 4, 7], [2, 5, 8],
 [0, 4, 8], [2, 4, 6]
@@ -26,9 +20,10 @@ document.querySelector('button').addEventListener('click', initialize);
 
 let section = document.querySelector('section')
 section.addEventListener('click', (evt) => {
+    
     if(board[evt.target.id] !== null) {
         console.log("THIS BOX IS TAKEN")
-        // render()
+        // locks box after click
     } 
     else {
         makeMove(evt);
@@ -40,9 +35,9 @@ section.addEventListener('click', (evt) => {
 initialize();
 
 function initialize() {
+    
     console.log('GAME STARTED')
     replay.innerText = "'X' GOES FIRST :^)";
-    let boxes = section.children;
     for(let i = 0; i < boxes.length; i++ ){
         boxes[i].innerText = '';
     }
@@ -51,17 +46,12 @@ function initialize() {
         null, null, null];
     turn = 1;
     winner = null;
-    // render();
-}
-
-function render() { // display messages
-    
 }
 
 function makeMove(evt) {
+    
     let i = evt.target.id;
     console.log('player ' + turn + ' clicked box ' + i);
-
     if (turn === 1) {
         evt.target.innerText = 'X';
         replay.innerText = "O's TURN!";
@@ -70,22 +60,25 @@ function makeMove(evt) {
         evt.target.innerText = 'O';
         replay.innerText = "X's TURN!";
     }
-
     board[i] = turn;
-    winner = checkWinner();
+    console.log(board);
+    checkWinner();
     turn *= -1;
 }
 
 function checkWinner() {
-    console.log(board)
-
+    
     winningCombos.forEach(function(combo) {
 
         if (Math.abs(board[combo[0]]+board[combo[1]]+board[combo[2]]) === 3) {
+            
             document.getElementById(combo[0]).style.color = 'red';
             document.getElementById(combo[1]).style.color = 'red';
             document.getElementById(combo[2]).style.color = 'red';
+
+            section.style.pointerEvents = 'none';
             replay.innerText = "RESET GAME";
         }
     });
-}
+
+} 
