@@ -61,7 +61,6 @@ function makeMove(evt) {
         replay.innerText = "X's TURN!";
     }
     board[i] = turn;
-    console.log(board);
     checkWinner();
     turn *= -1;
     winner = null;
@@ -71,10 +70,12 @@ function checkWinner() {
     
     winningCombos.forEach(function(combo) {
 
+        console.log('checking board for winning combos')
         if (Math.abs(board[combo[0]]+board[combo[1]]+board[combo[2]]) === 3) {
             
+            console.log('winner found')
             winner = 'won';
-
+            
             document.getElementById(combo[0]).style.color = 'red';
             document.getElementById(combo[1]).style.color = 'red';
             document.getElementById(combo[2]).style.color = 'red';
@@ -87,8 +88,10 @@ function checkWinner() {
 
     if (!board.includes(null)) {
         
+        console.log('checking full board')
         if (winner === null) {
             
+            console.log('cats game')
             for(let i = 0; i < boxes.length; i++ ){
                  boxes[i].style.color = '#FFC0C1';
             }
