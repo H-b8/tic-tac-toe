@@ -37,6 +37,7 @@ initialize();
 function initialize() {
     
     console.log('GAME STARTED')
+    replay.style.pointerEvents = 'none';
     replay.innerText = "'X' GOES FIRST :^)";
     for(let i = 0; i < boxes.length; i++ ){
         boxes[i].innerText = '';
@@ -77,7 +78,8 @@ function checkWinner() {
             document.getElementById(combo[2]).style.color = 'red';
 
             section.style.pointerEvents = 'none';
-            replay.innerText = "RESET GAME";
+            replay.innerText = "CLICK TO RESET GAME";
+            replay.style.pointerEvents = 'auto';
         }
     });
 
