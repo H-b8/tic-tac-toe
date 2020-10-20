@@ -1,4 +1,4 @@
-# TIC-TAC-TOE GAME
+# TIC/TAC/TOE GAME
 
 - Game starts by invoking *initialize();*  
 - Box below grid is a disabled button used for message display
