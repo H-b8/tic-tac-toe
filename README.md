@@ -1,7 +1,5 @@
 # TIC/TAC/TOE GAME
 
-<img scr="https://i.pinimg.com/originals/81/bb/b2/81bbb2b5759c4fd98b04f467f26d4e4b.png"></img>
-
 - Game starts by invoking *initialize();*  
 - Box below grid is a disabled button used for message display
 - When a grid box is clicked, a symbol is placed into and it is then rendered unclickable  
