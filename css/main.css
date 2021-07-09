@@ -37,10 +37,9 @@ body {
     border: none;
 }
 
-/* .box:hover {
-    background-color:black;
-    color: white;
-} */
+.box:hover {
+    cursor: pointer;
+}
 
 #replay {
     width: 300px;
